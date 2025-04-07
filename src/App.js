@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import TaskInput from './components/TaskInput';
+import TaskList from './components/TaskList';
+import Login from './components/Login';
+import Container from 'react-bootstrap/Container';
+import { login } from './redux/authSlice';
 
 function App() {
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+
+  useEffect(() => {
+    const storedAuth = localStorage.getItem('isAuthenticated');
+    if (storedAuth === 'true') {
+      dispatch(login());
+    }
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container className="p-4">
+      <h1 className="text-center">Enhanced To-Do App</h1>
+      {isAuthenticated ? (
+        <>
+          <TaskInput />
+          <TaskList />
+        </>
+      ) : (
+        <Login />
+      )}
+    </Container>
   );
 }
 
