@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+Enhanced To-Do App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A responsive and user-friendly To-Do application built with React, Redux Toolkit, and Bootstrap. This version features weather integration for outdoor tasks, simulated authentication, and state management using Redux.
 
-## Available Scripts
+Features
 
-In the project directory, you can run:
+Add indoor and outdoor tasks
 
-### `npm start`
+View current weather for outdoor tasks using OpenWeatherMap API
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Simulated login/logout authentication using Redux
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Protected To-Do access (only visible when logged in)
 
-### `npm test`
+Responsive layout using Bootstrap
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Technologies Used
 
-### `npm run build`
+React
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Redux Toolkit
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+React Redux
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Redux Thunk
 
-### `npm run eject`
+React Bootstrap
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+OpenWeatherMap API
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Getting Started
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Clone the Repository
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Install Dependencies
 
-## Learn More
+npm install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Configure Weather API
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Replace YOUR_API_KEY in redux/weatherSlice.js with your OpenWeatherMap API Key.
 
-### Code Splitting
+4. Run the Application
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+npm start
 
-### Analyzing the Bundle Size
+The app will run locally at: http://localhost:3000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Folder Structure
 
-### Making a Progressive Web App
+src/
+├── components/
+│   ├── Login.js
+│   ├── TaskInput.js
+│   └── TaskList.js
+├── redux/
+│   ├── authSlice.js
+│   ├── store.js
+│   ├── tasksSlice.js
+│   └── weatherSlice.js
+├── App.js
+└── index.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Simulated Authentication
 
-### Advanced Configuration
+When the app loads, users are prompted to log in.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Login sets isAuthenticated in Redux and localStorage.
 
-### Deployment
+Logout clears both and hides the task list.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Notes
 
-### `npm run build` fails to minify
+This app does not persist tasks across sessions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Backend authentication and data storage are not implemented.
